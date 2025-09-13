@@ -1,0 +1,70 @@
+import java.util.*;
+
+class Calculator {
+    int a, b;
+
+    Calculator(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public String addition() {
+        int sum = a + b;
+        return "Addition = " + sum;
+    }
+
+    public String subtraction() {
+        return "Subtraction = " + (a - b);
+    }
+
+    public String multiplication() {
+        return "Multiplication = " + (a * b);
+    }
+
+    public String division() {
+        if (b == 0) {
+            return "Invalid (division by zero)";
+        } else {
+            return "Division = " + ((float) a / b);
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int x = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int y = sc.nextInt();
+
+        Calculator calc = new Calculator(x, y);
+
+        System.out.println("1) Addition");
+        System.out.println("2) Subtraction");
+        System.out.println("3) Multiplication");
+        System.out.println("4) Division");
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println(calc.addition());
+                break;
+            case 2:
+                System.out.println(calc.subtraction());
+                break;
+            case 3:
+                System.out.println(calc.multiplication());
+                break;
+            case 4:
+                System.out.println(calc.division());
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+
+        sc.close();
+    }
+}
